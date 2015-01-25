@@ -20,7 +20,7 @@ public class Door : MonoBehaviour {
 	}
 	
 	public void Toggle(){
-		if(open){
+		if(!open){
 			if(OpenInwards){
 				this.OpenIn();
 			}else{
