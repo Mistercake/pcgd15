@@ -5,9 +5,9 @@ public class AlertSystem : MonoBehaviour {
 
 	public Light mainLight;
 	
-	const int STATUS_CLEAR = 0;
-	const int STATUS_CAUTION = 1;
-	const int STATUS_ALERT = 2;
+	public const int STATUS_CLEAR = 0;
+	public const int STATUS_CAUTION = 1;
+	public const int STATUS_ALERT = 2;
 	
 	int currentStatus = STATUS_CLEAR;
 	Color targetColor = Color.red;
@@ -44,5 +44,9 @@ public class AlertSystem : MonoBehaviour {
 	
 	public void Alert(){
 		currentStatus = STATUS_ALERT;
+	}
+	
+	public int GetStatus(){
+		return currentStatus;
 	}
 }
