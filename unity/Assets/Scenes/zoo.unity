@@ -2262,6 +2262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b998c2812ad5e99499a25ed99148832e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetNode: {fileID: 1292133096}
 --- !u!143 &1083076060
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4741,6 +4742,14 @@ Prefab:
     - target: {fileID: 193402, guid: e64f34ed5bc997e4998f77d445e8e1f4, type: 2}
       propertyPath: m_Name
       value: Guard
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493378, guid: e64f34ed5bc997e4998f77d445e8e1f4, type: 2}
+      propertyPath: targetNode
+      value: 
+      objectReference: {fileID: 1292133096}
+    - target: {fileID: 19593378, guid: e64f34ed5bc997e4998f77d445e8e1f4, type: 2}
+      propertyPath: m_StoppingDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e64f34ed5bc997e4998f77d445e8e1f4, type: 2}
