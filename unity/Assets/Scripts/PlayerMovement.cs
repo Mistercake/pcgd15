@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour {
 	bool useOutsideInput = false;
 	Vector3 faceTarget = Vector3.zero;
 	bool useFaceTarget = false;
+	bool aiming = false;
+	float gunCharge = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +23,22 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*
+		if(Input.GetButtonDown("Action")){
+			aiming = true;
+			animator.SetBool("Aiming", aiming);
+		}*/
+		
+		if(aiming) gunCharge += 0.5f*Time.deltaTime;
+		else gunCharge = 0f;
+		animator.SetFloat("Gun Charge", gunCharge);
+		
+		if(Input.GetButtonUp("Action")){
+			aiming = false;
+			animator.SetBool("Aiming", aiming);
+		}
+		
+
 		
 		Camera camera = Camera.main;
 		Vector3 cameraForward = Vector3.ProjectOnPlane(camera.transform.forward, Vector3.up).normalized;
@@ -41,7 +59,7 @@ public class PlayerMovement : MonoBehaviour {
 			}
 		}
 		
-		controller.Move(input*Time.deltaTime*3f);
+		if(!aiming) controller.Move(input*Time.deltaTime*3f);
 		animator.SetFloat("Velocity", controller.velocity.magnitude);
 		
 		controller.Move(Vector3.down*9.81f*Time.deltaTime);
@@ -61,5 +79,9 @@ public class PlayerMovement : MonoBehaviour {
 		target.y = 0f;
 		faceTarget = target;
 		useFaceTarget = true;
+	}
+	
+	public void SetHacking(bool value){
+		animator.SetBool("Hacking", value);
 	}
 }
