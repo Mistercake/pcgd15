@@ -5,12 +5,13 @@ public class AlertSystem : MonoBehaviour {
 
 	public Light mainLight;
 	
-	const int STATUS_CLEAR = 0;
-	const int STATUS_CAUTION = 1;
-	const int STATUS_ALERT = 2;
+	public const int STATUS_CLEAR = 0;
+	public const int STATUS_CAUTION = 1;
+	public const int STATUS_ALERT = 2;
 	
 	int currentStatus = STATUS_CLEAR;
 	Color targetColor = Color.red;
+	Vector3 lastPlayerPosition;
 	
 	// Use this for initialization
 	void Start () {
@@ -42,7 +43,19 @@ public class AlertSystem : MonoBehaviour {
 		}
 	}
 	
-	public void Alert(){
+	public void Alert(Vector3 playerPosition){
 		currentStatus = STATUS_ALERT;
+		lastPlayerPosition = playerPosition;
+		foreach(GuardAlertness guard in GameObject.FindObjectsOfType<GuardAlertness>()){
+			guard.Alert();
+		}
+	}
+	
+	public int GetStatus(){
+		return currentStatus;
+	}
+	
+	public Vector3 GetLastPlayerPosition(){
+		return lastPlayerPosition;
 	}
 }

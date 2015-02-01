@@ -4,10 +4,10 @@ using System.Collections;
 public class CameraMovement : MonoBehaviour {
 
 	public Transform target;
-	public Vector3 angle = new Vector3(1,-1,1);
-	public float distance = 10f;
-	public float FOV = 40f;
-	public float lerpRate = 0.5f;
+	public Vector3 angle = new Vector3(-1,-1,-1);
+	public float distance = 20f;
+	public float FOV = 30f;
+	public float lerpRate = 0.8f;
 
 	// Use this for initialization
 	void Start () {

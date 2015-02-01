@@ -41,7 +41,7 @@ public class SecurityCamera : MonoBehaviour {
 					hitColor = Color.red;
 					alertBuffer += Time.deltaTime;
 					if(alertBuffer > 1.5f){
-						GameObject.FindGameObjectWithTag("AlertSystem").GetComponent<AlertSystem>().Alert();
+						GameObject.FindGameObjectWithTag("AlertSystem").GetComponent<AlertSystem>().Alert(player.position);
 					}
 					Debug.Log("Security Camera Alert");
 				}
