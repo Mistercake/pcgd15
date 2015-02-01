@@ -14,6 +14,8 @@ public class GuardMovement : MonoBehaviour {
 	GuardVision vision;
 	float lookAroundTimer = 0f;
 	float defaultStoppingDistance = 1f;
+	bool reachedNode = false;
+	Transform punchVolume;
 	
 	bool dead = false;
 
@@ -28,6 +30,8 @@ public class GuardMovement : MonoBehaviour {
 		guardAlert = gameObject.GetComponent<GuardAlertness>();
 		vision = gameObject.GetComponent<GuardVision>();
 		alert = GameObject.FindGameObjectWithTag("AlertSystem").GetComponent<AlertSystem>();
+		punchVolume = transform.Find("CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/PunchVolume");
+		Debug.Log(punchVolume);
 	}
 	
 	// Update is called once per frame
@@ -60,22 +64,35 @@ public class GuardMovement : MonoBehaviour {
 				agent.speed = 1;
 				agent.SetDestination(targetNode.transform.position);
 				if(agent.remainingDistance <= agent.stoppingDistance){
-					lookAroundTimer += 2f;
-					targetNode = targetNode.nextNode;
+					if(!reachedNode){
+						lookAroundTimer += 2f;
+						targetNode = targetNode.nextNode;
+						reachedNode = true;
+					}
+				}else{
+					reachedNode = false;
 				}
 				break;
 			case GuardAlertness.STATUS_ALERT:
 				agent.speed = 2.5f;
 				if(alert.GetStatus() != AlertSystem.STATUS_ALERT){
 					Transform button = GetClosestAlertButton();
-					agent.stoppingDistance = 0.5f;
-					agent.SetDestination(button.position);
-					if(Vector3.Distance(transform.position, button.position) <= 1f){
-						alert.Alert(vision.GetLastPlayerPosition());
+					if(button == null){
+						agent.stoppingDistance = defaultStoppingDistance;
+						agent.SetDestination(alert.GetLastPlayerPosition());
+					}else{
+						agent.stoppingDistance = 0.5f;
+						agent.SetDestination(button.position);
+						if(Vector3.Distance(transform.position, button.position) <= 1f){
+							alert.Alert(vision.GetLastPlayerPosition());
+						}
 					}
 				}else{
 					agent.stoppingDistance = defaultStoppingDistance;
 					agent.SetDestination(alert.GetLastPlayerPosition());
+				}
+				if(Vector3.Distance(player.position, transform.position) <= 1.1f && Vector3.Angle(transform.forward, (player.position-transform.position)) < 30f){
+					animator.SetTrigger("Punch");
 				}
 				break;
 		}
@@ -95,5 +112,18 @@ public class GuardMovement : MonoBehaviour {
 	public void Die(){
 		dead = true;
 		animator.SetTrigger("Die");
+		DisablePunch();
+	}
+	
+	public bool IsDead(){
+		return dead;
+	}
+	
+	public void EnablePunch(){
+		punchVolume.gameObject.SetActive(true);
+	}
+	
+	public void DisablePunch(){
+		punchVolume.gameObject.SetActive(false);
 	}
 }

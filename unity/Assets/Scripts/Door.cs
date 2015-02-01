@@ -34,13 +34,17 @@ public class Door : MonoBehaviour {
 	}
 	
 	public void OpenOut(){
-		animator.SetTrigger("OpenOut");
-		open = true;
+		if(!open){
+			animator.SetTrigger("OpenOut");
+			open = true;
+		}
 	}
 	
 	public void OpenIn(){
-		animator.SetTrigger("OpenIn");
-		open = true;
+		if(!open){
+			animator.SetTrigger("OpenIn");
+			open = true;
+		}
 	}
 	
 	public void Close(){
