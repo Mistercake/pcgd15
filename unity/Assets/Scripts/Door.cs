@@ -4,12 +4,14 @@ using System.Collections;
 public class Door : MonoBehaviour {
 
 	public bool OpenInwards = false;
+	public bool StartOpen = false;
 	Animator animator;
 	bool open = false;
 	
 	// Use this for initialization
 	void Start () {
 		animator = gameObject.GetComponent<Animator>();
+		if(StartOpen) Toggle();
 	}
 	
 	// Update is called once per frame
