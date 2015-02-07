@@ -11,6 +11,7 @@ public class AlertSystem : MonoBehaviour {
 	
 	int currentStatus = STATUS_CLEAR;
 	Color targetColor = Color.red;
+	Vector3 lastPlayerPosition;
 	
 	// Use this for initialization
 	void Start () {
@@ -42,11 +43,19 @@ public class AlertSystem : MonoBehaviour {
 		}
 	}
 	
-	public void Alert(){
+	public void Alert(Vector3 playerPosition){
 		currentStatus = STATUS_ALERT;
+		lastPlayerPosition = playerPosition;
+		foreach(GuardAlertness guard in GameObject.FindObjectsOfType<GuardAlertness>()){
+			guard.Alert();
+		}
 	}
 	
 	public int GetStatus(){
 		return currentStatus;
+	}
+	
+	public Vector3 GetLastPlayerPosition(){
+		return lastPlayerPosition;
 	}
 }
