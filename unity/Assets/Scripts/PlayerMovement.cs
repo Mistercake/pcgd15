@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 	float gunCharge = 0f;
 	Transform gun;
 	Vector3 aimTarget;
+	bool dead = false;
 
 	// Use this for initialization
 	void Start () {
@@ -29,11 +30,10 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		UpdateGun();
-		UpdateMovement();
-		
-		
+		if(!dead){
+			UpdateGun();
+			UpdateMovement();
+		}
 	}
 	
 	void UpdateMovement(){
@@ -120,9 +120,15 @@ public class PlayerMovement : MonoBehaviour {
 		
 		RaycastHit hit;
 		
-		if (Physics.Raycast(muzzle.position, (gunTarget-muzzle.position), out hit, Mathf.Infinity, (1 << 9))){ // Raycast only for the layer 'Enemies'
-			Debug.Log("Hit a guard.");
-			hit.transform.GetComponent<GuardMovement>().Die();
+		if (Physics.Raycast(muzzle.position, (gunTarget-muzzle.position), out hit)){
+			if(hit.transform.tag == "Guard"){
+				Debug.Log("Hit a guard.");
+				hit.transform.GetComponent<GuardMovement>().Die();
+			}
+		}
+		
+		foreach(Collider collider in Physics.OverlapSphere(gun.position, 10f, (1 << 9))){
+			collider.gameObject.GetComponent<GuardVision>().Suspicion(gun.position);
 		}
 	}
 	
@@ -144,5 +150,16 @@ public class PlayerMovement : MonoBehaviour {
 	
 	public void SetHacking(bool value){
 		animator.SetBool("Hacking", value);
+	}
+	
+	public void Die(){
+		if(!dead){
+			dead = true;
+			animator.SetTrigger("ShockDie");
+		}
+	}
+	
+	public bool IsDead(){
+		return dead;
 	}
 }

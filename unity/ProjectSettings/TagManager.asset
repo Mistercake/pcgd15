@@ -6,6 +6,8 @@ TagManager:
   - AlertSystem
   - PatrolNode
   - AlertButton
+  - Guard
+  - GameDirector
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

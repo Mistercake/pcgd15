@@ -20,34 +20,51 @@ public class GuardVision : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	
+		if(gameObject.GetComponent<GuardMovement>().IsDead()) return;
+	
+		Vector3 playerTarget = player.position + Vector3.up*0.5f;
 		
-		Vector3 playerTarget = player.position+Vector3.up*0.5f;
-		Color hitColor = Color.cyan;
-		if(Vector3.Distance(playerTarget, transform.position) < 10f && Vector3.Angle(playerTarget-eyes.position, transform.forward) < GuardFOV/2){
-			RaycastHit hit;
-			
-			if (Physics.Raycast(eyes.position, (playerTarget-eyes.position), out hit)){
-				Debug.Log(hit.transform);
-				if(hit.transform.tag == "Player"){
-					hitColor = Color.red;
-					alertBuffer += Time.deltaTime;
-					if(alertBuffer > 0.2f){
-						VisualContact();
-					}
+		RaycastHit hit;
+		if(CanSee(player, out hit, (Vector3.up*0.5f))){
+			if(hit.transform.tag == "Player"){
+				alertBuffer += Time.deltaTime;
+				if(alertBuffer > 0.2f){
+					VisualContact();
 				}
-			}else{
-				alertBuffer -= Time.deltaTime;
-				alertBuffer = alertBuffer < 0 ? 0f : alertBuffer;
 			}
-			Debug.DrawLine(eyes.position, player.position+Vector3.up*0.5f, hitColor);
-			
 		}else{
-			Debug.DrawLine(eyes.position, eyes.position+transform.forward, Color.yellow);
+			alertBuffer -= Time.deltaTime;
+			alertBuffer = alertBuffer < 0 ? 0f : alertBuffer;
 		}
+		
+		foreach(GameObject guard in GameObject.FindGameObjectsWithTag("Guard")){
+			if(guard == gameObject) continue;
+			hit = new RaycastHit();
+			if(guard.GetComponent<GuardMovement>().IsDead() && CanSee(guard.transform, out hit, Vector3.zero)){
+				Suspicion(guard.transform.position);
+			}
+		}
+		
 		if(guardAlert.GetStatus() >= GuardAlertness.STATUS_CAUTION && Vector3.Distance(playerTarget, transform.position) < 3f){
 			VisualContact();
 		}
 		
+	}
+	
+	bool CanSee(Transform target, out RaycastHit hit, Vector3 offset){
+		hit = new RaycastHit();
+		bool result = false;
+		Color hitColor = Color.cyan;
+		Vector3 point = target.position+offset;
+		if(Vector3.Distance(point, transform.position) < 10f && Vector3.Angle(point-eyes.position, transform.forward) < GuardFOV/2){
+			if(Physics.Raycast(eyes.position, (point-eyes.position), out hit)){
+				result = true;
+				hitColor = Color.red;
+			}
+		}
+		Debug.DrawLine(eyes.position, point, hitColor);
+		return result;
 	}
 	
 	public Vector3 GetLastPlayerPosition(){
@@ -57,6 +74,11 @@ public class GuardVision : MonoBehaviour {
 	void VisualContact(){
 		lastPlayerPosition = player.position;
 		guardAlert.VisualContact();
-		Debug.Log("Guard has seen you.");
+		Debug.Log(player.position);
+	}
+	
+	public void Suspicion(Vector3 source){
+		lastPlayerPosition = source;
+		guardAlert.VisualContact();
 	}
 }
