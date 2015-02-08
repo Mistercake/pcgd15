@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	CharacterController controller;
 	Animator animator;
-	bool preventMovement = false;
+	bool movementAllowed = true;
 	Vector3 outsideInput = Vector3.zero;
 	bool useOutsideInput = false;
 	Vector3 faceTarget = Vector3.zero;
@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void UpdateMovement(){
+		
+	
 		Camera camera = Camera.main;
 		Vector3 cameraForward = Vector3.ProjectOnPlane(camera.transform.forward, Vector3.up).normalized;
 		Vector3 cameraRight = Vector3.ProjectOnPlane(camera.transform.right, Vector3.up).normalized;
@@ -64,8 +66,8 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			}
 		}
-		
-		if(!preventMovement) controller.Move(input*Time.deltaTime*speed);
+
+		if(movementAllowed) controller.Move(input*Time.deltaTime*speed);
 		animator.SetFloat("Velocity", controller.velocity.magnitude);
 		
 		controller.Move(Vector3.down*9.81f*Time.deltaTime);
@@ -82,11 +84,7 @@ public class PlayerMovement : MonoBehaviour {
 			animator.SetBool("Aiming", aiming);
 			gun.Find("loading").particleSystem.Stop();
 		}
-		if(animator.GetCurrentAnimatorStateInfo(0).IsName("Base.Aiming")){
-			preventMovement = true;
-		}else{
-			preventMovement = false;
-		}
+
 		
 		if(aiming){
 			speed = 1.5f;
@@ -112,28 +110,31 @@ public class PlayerMovement : MonoBehaviour {
 	
 	void Shoot(){
 		gun.Find("fire").particleSystem.Play();
-		Transform muzzle = gun.Find("Muzzle");
+		Vector3 muzzle = transform.position+Vector3.up*0.5f;
 		Vector3 gunTarget = aimTarget;
-		gunTarget.y = muzzle.position.y;
+	//	gunTarget.y = transform.TransformPoint(muzzle.position).y;
 		animator.SetTrigger("Shoot");
 		gunCharge = 0f;
 		
 		RaycastHit hit;
 		
-		if (Physics.Raycast(muzzle.position, (gunTarget-muzzle.position), out hit)){
+		if (Physics.Raycast(muzzle, (gunTarget-transform.position), out hit, Mathf.Infinity/*, ~(1<<10)*/)){ // all layers except 'Player' (layer 10)
+			Debug.Log(hit.transform);
 			if(hit.transform.tag == "Guard"){
 				Debug.Log("Hit a guard.");
 				hit.transform.GetComponent<GuardMovement>().Die();
 			}
 		}
+		Debug.DrawRay(muzzle, (gunTarget-transform.position), Color.red, 5f);
 		
 		foreach(Collider collider in Physics.OverlapSphere(gun.position, 10f, (1 << 9))){
 			collider.gameObject.GetComponent<GuardVision>().Suspicion(gun.position);
 		}
 	}
 	
-	public void SetMovement(bool val){
-		preventMovement = val;
+	public void SetMovement(bool value){
+		Debug.Log("SetMovement");
+		this.movementAllowed = value;
 	}
 	
 	public void SetInput(Vector3 input){

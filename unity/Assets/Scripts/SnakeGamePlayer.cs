@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class SnakeGamePlayer : MonoBehaviour {
 
 
 	public float movementSpeed;
@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
 
 	private int direction; // 0: no direction, 1: up, 2: right, 3: down, 4: left
 	private Vector3 startPosition;
+	
+	bool ready = false;
 
 
 	void Start () {
@@ -26,13 +28,13 @@ public class PlayerController : MonoBehaviour {
 
 	// Checks for user input, simple as that ;)
 	void CheckInput() {
-		if (Input.GetKeyDown (KeyCode.UpArrow) && direction != 3)
+		if (Input.GetButtonDown("Up") && direction != 3)
 						direction = 1;
-		if (Input.GetKeyDown (KeyCode.RightArrow) && direction != 4)
+		if (Input.GetButtonDown("Right") && direction != 4)
 						direction = 2;
-		if (Input.GetKeyDown (KeyCode.DownArrow) && direction != 1)
+		if (Input.GetButtonDown("Down") && direction != 1)
 						direction = 3;
-		if (Input.GetKeyDown (KeyCode.LeftArrow) && direction != 2)
+		if (Input.GetButtonDown("Left") && direction != 2)
 						direction = 4;
 	}
 
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour {
 	void GoalReached() {
 		direction = 0;
 		// connectedObject.activate ();
+		ready = true;
 		gameObject.SetActive (false); // NEEDS TO BE CALLED LAST, not sure if this is the best way to disable user interaction?
 	}
 
@@ -85,5 +88,13 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		Debug.Log("Bonus was hit");
 		bonusObject.ActivateBonus();
+	}
+	
+	public bool IsGoalReached(){
+		return ready;
+	}
+	
+	public bool IsBonusGoalReached(){
+		return bonusObject.IsActivated();
 	}
 }

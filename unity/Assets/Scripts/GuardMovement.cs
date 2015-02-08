@@ -74,6 +74,7 @@ public class GuardMovement : MonoBehaviour {
 				}
 				break;
 			case GuardAlertness.STATUS_ALERT:
+				lookAroundTimer = 0f;
 				agent.speed = 2.5f;
 				if(alert.GetStatus() != AlertSystem.STATUS_ALERT){
 					Transform button = GetClosestAlertButton();

@@ -1412,7 +1412,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 190639144}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigRLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2329,7 +2329,7 @@ GameObject:
   - 33: {fileID: 272753507}
   - 23: {fileID: 272753506}
   - 95: {fileID: 272753505}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sunglasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2529,7 +2529,7 @@ GameObject:
   - 4: {fileID: 289615349}
   - 198: {fileID: 289615351}
   - 199: {fileID: 289615350}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4788,7 +4788,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413255203}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigRArmCollarbone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5797,7 +5797,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 552225818}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigRArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6158,7 +6158,7 @@ GameObject:
   - 33: {fileID: 575658051}
   - 23: {fileID: 575658050}
   - 95: {fileID: 575658049}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6982,7 +6982,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 674285028}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8098,7 +8098,7 @@ GameObject:
   - 4: {fileID: 772313861}
   - 198: {fileID: 772313863}
   - 199: {fileID: 772313862}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9591,7 +9591,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 810837831}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigSpine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9679,7 +9679,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 816989856}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9706,7 +9706,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 821688934}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigSpine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9926,7 +9926,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 827118954}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigLArmCollarbone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10288,7 +10288,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1990052646}
-  methodName: OpenIn
+  targetMethodName: 
+  bonusTarget: {fileID: 0}
+  bonusTargetMethodName: 
+  MiniGameName: 
 --- !u!65 &877769270
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10542,7 +10545,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 898888722}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigLLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10669,7 +10672,7 @@ GameObject:
   - 4: {fileID: 921439281}
   - 198: {fileID: 921439283}
   - 199: {fileID: 921439282}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ready
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11940,7 +11943,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 942690349}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigRLegAnkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11969,7 +11972,7 @@ GameObject:
   - 4: {fileID: 946913334}
   - 33: {fileID: 946913336}
   - 23: {fileID: 946913335}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12282,7 +12285,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1039942204}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigRLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12941,7 +12944,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1115812584}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigLArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12999,7 +13002,7 @@ GameObject:
   - 95: {fileID: 1126701701}
   - 143: {fileID: 1126701700}
   - 114: {fileID: 1126701699}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -14101,7 +14104,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1278980600}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigRArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14252,7 +14255,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1303403004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigLArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14762,7 +14765,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1364549317}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigLLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14968,7 +14971,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1403279178}
   - 137: {fileID: 1403279179}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Guy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15940,7 +15943,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1514697535}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigTorso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16076,7 +16079,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1570383042}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigSpine1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16377,7 +16380,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1615063404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigRArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16477,7 +16480,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1630461954}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigLLegAnkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17291,7 +17294,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1713567518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigSpine2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17519,7 +17522,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1728192652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigLArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19843,7 +19846,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1648330301}
-  methodName: OpenIn
+  targetMethodName: 
+  bonusTarget: {fileID: 0}
+  bonusTargetMethodName: 
+  MiniGameName: 
 --- !u!65 &2031048315
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20937,7 +20943,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2137298641}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CATRigPelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}

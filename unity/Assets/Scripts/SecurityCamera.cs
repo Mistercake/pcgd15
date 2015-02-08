@@ -36,7 +36,7 @@ public class SecurityCamera : MonoBehaviour {
 			RaycastHit hit;
 			
 			if (Physics.Raycast(lens.position, (playerTarget-lens.position), out hit)){
-				Debug.Log(hit.transform);
+				//Debug.Log(hit.transform);
 				if(hit.transform.tag == "Player"){
 					hitColor = Color.red;
 					alertBuffer += Time.deltaTime;

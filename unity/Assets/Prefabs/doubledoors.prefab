@@ -65,7 +65,7 @@ GameObject:
   - 95: {fileID: 9555474}
   - 114: {fileID: 11455474}
   m_Layer: 0
-  m_Name: Doubledoors
+  m_Name: doubledoors
   m_TagString: PatrolNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

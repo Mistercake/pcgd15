@@ -4,7 +4,12 @@ using System.Collections;
 public class Terminal : MonoBehaviour {
 
 	public GameObject target;
-	public string methodName;
+	public string targetMethodName;
+	
+	public GameObject bonusTarget;
+	public string bonusTargetMethodName;
+	
+	public string MiniGameName;
 
 	bool playerNear = false;
 	Transform playerMark;
@@ -15,25 +20,30 @@ public class Terminal : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playerMark = transform.Find("PlayerMark");
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+		player = GameObject.FindObjectOfType<PlayerMovement>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(playerNear && Input.GetButtonDown("Action")){
-			/*used = true;
-			player.SetMovement(false);*/
-			target.SendMessage(methodName);
+			Use();
 		}
-		/*
-		if(used){
-			if(Vector3.Distance(player.transform.position, playerMark.position) > 0.1f){
-				player.SetInput(Vector3.ClampMagnitude(playerMark.position-player.transform.position, 1f));
-				player.SetFaceTarget(transform.position);
-			}
-		}*/
 	}
 	
+	void Use(){
+		used = true;
+		player.SetMovement(false);
+		
+		GameObject minigame = (GameObject) Instantiate(Resources.Load("SnakeGame"), Vector3.zero, Quaternion.identity);
+		MiniGame game = minigame.GetComponent(typeof(MiniGame)) as MiniGame;
+		game.SetTerminal(this);
+    }
+    
+    void UnUse(){
+    	used = false;
+    	player.SetMovement(true);
+    }
+    
 	void OnTriggerEnter(Collider other){
 		if(other.tag == "Player"){
 			playerNear = true;
@@ -45,4 +55,16 @@ public class Terminal : MonoBehaviour {
 			playerNear = false;
 		}
 	}
+	
+	public void MiniGameQuit(){
+		player.SetMovement(true);
+	}
+	
+	public void MiniGameFinished(bool IsBonusGoalReached){
+		target.SendMessage(targetMethodName);
+		if(IsBonusGoalReached) bonusTarget.SendMessage(bonusTargetMethodName);
+		player.SetMovement(true);
+	}
+	
+	
 }

@@ -74,7 +74,7 @@ public class GuardVision : MonoBehaviour {
 	void VisualContact(){
 		lastPlayerPosition = player.position;
 		guardAlert.VisualContact();
-		Debug.Log(player.position);
+		//Debug.Log(player.position);
 	}
 	
 	public void Suspicion(Vector3 source){
