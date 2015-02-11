@@ -31,6 +31,7 @@ public class Terminal : MonoBehaviour {
 	}
 	
 	void Use(){
+		if(used) return;
 		used = true;
 		player.SetMovement(false);
 		

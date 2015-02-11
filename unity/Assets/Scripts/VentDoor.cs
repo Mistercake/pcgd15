@@ -4,6 +4,7 @@ using System.Collections;
 public class VentDoor : MonoBehaviour {
 
 	Animator animator;
+	public bool locked;
 
 	// Use this for initialization
 	void Start () {
@@ -16,13 +17,13 @@ public class VentDoor : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter(Collider other){
-		if(other.tag == "Player"){
+		if(!locked && other.tag == "Player"){
 			animator.SetTrigger("OpenRight");
 		}
 	}
 	
 	void OnTriggerExit(Collider other){
-		if(other.tag == "Player"){
+		if(!locked && other.tag == "Player"){
 			animator.SetTrigger("Close");
 		}
 	}
