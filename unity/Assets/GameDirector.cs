@@ -19,14 +19,17 @@ public class GameDirector : MonoBehaviour {
 	
 	void SlideOut(){
 		animator.SetTrigger("SlideOut");
-		Invoke("Restart", 1.3f);
-		
+		Invoke("NextLevel", 1.3f);
 	}
 	
 	void Restart(){
 		Application.LoadLevel(Application.loadedLevel);
 	}
-	
+
+	void NextLevel(){
+		Application.LoadLevel(Application.loadedLevel+1);
+	}
+
 	public void Win(){
 		animator.SetTrigger("Victory");
 		Invoke("SlideOut", 1f);
