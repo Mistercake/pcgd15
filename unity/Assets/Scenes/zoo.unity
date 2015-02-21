@@ -6872,7 +6872,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 776787836}
-  m_LocalRotation: {x: .168271109, y: -.828410208, z: .334870398, w: .416273117}
+  m_LocalRotation: {x: .168271109, y: -.828410149, z: .334870398, w: .416273087}
   m_LocalPosition: {x: 5.32000017, y: 10.6700001, z: 8.90999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -19319,6 +19319,7 @@ GameObject:
   - 114: {fileID: 1731337279}
   - 114: {fileID: 1731337278}
   - 95: {fileID: 1731337282}
+  - 114: {fileID: 1731337283}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -19412,6 +19413,17 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1731337283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1731337277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6a3f28caa318246a0e98860d50eaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1739391541
 GameObject:
   m_ObjectHideFlags: 0
