@@ -46,4 +46,10 @@ public class GuardAlertness : MonoBehaviour {
 	public int GetStatus(){
 		return currentStatus;
 	}
+
+    public void DropToCaution()
+    {
+        currentStatus = STATUS_CAUTION;
+        GetComponent<GuardMovement>().SelectTargetNode();
+    }
 }

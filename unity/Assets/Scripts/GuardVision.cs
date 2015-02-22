@@ -10,6 +10,7 @@ public class GuardVision : MonoBehaviour {
 	float alertBuffer = 0f;
 	GuardAlertness guardAlert;
 	Vector3 lastPlayerPosition;
+    float lastPlayerSighting;
 
 	// Use this for initialization
 	void Start () {
@@ -43,10 +44,14 @@ public class GuardVision : MonoBehaviour {
 			hit = new RaycastHit();
 			if(guard.GetComponent<GuardMovement>().IsDead() && CanSee(guard.transform, out hit, Vector3.zero)){
 				Suspicion(guard.transform.position);
+                guard.gameObject.tag = "";
 			}
 		}
-		
-		if(guardAlert.GetStatus() >= GuardAlertness.STATUS_CAUTION && Vector3.Distance(playerTarget, transform.position) < 3f){
+
+        float playerVelocity = player.GetComponent<CharacterController>().velocity.magnitude;
+        //Debug.Log(playerVelocity);
+
+		if(guardAlert.GetStatus() >= GuardAlertness.STATUS_CAUTION && Vector3.Distance(playerTarget, transform.position) < 3f && playerVelocity > 0.1f){
 			VisualContact();
 		}
 		
@@ -70,15 +75,21 @@ public class GuardVision : MonoBehaviour {
 	public Vector3 GetLastPlayerPosition(){
 		return lastPlayerPosition;
 	}
+
+    public float GetSightingDelta()
+    {
+        return Time.time - lastPlayerSighting;
+    }
 	
 	void VisualContact(){
 		lastPlayerPosition = player.position;
+        lastPlayerSighting = Time.time;
 		guardAlert.VisualContact();
-		//Debug.Log(player.position);
 	}
 	
 	public void Suspicion(Vector3 source){
 		lastPlayerPosition = source;
+        lastPlayerSighting = Time.time;
 		guardAlert.VisualContact();
 	}
 }
