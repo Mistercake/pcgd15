@@ -25,26 +25,5 @@ public class CameraMovement : MonoBehaviour {
 		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target.position-transform.position), lerpRate);
 	 	transform.position = Vector3.Lerp(transform.position, goalPos, lerpRate);
 	 	camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, FOV, lerpRate);
-
-        foreach(Transform mesh in GameObject.FindObjectOfType<MeshRenderer>().transform){
-            Debug.Log(mesh);
-            /*
-            Vector2 viewPoint = camera.WorldToViewportPoint(mesh.transform.position);
-            if (viewPoint.x > 1.1f || viewPoint.x < -0.1f || viewPoint.y > 1.1f || viewPoint.y < -0.1f)
-            {
-                mesh.GetComponent<MeshRenderer>().enabled = false;
-            }
-            else
-            {
-                mesh.GetComponent<MeshRenderer>().enabled = true;
-            }
-            */
-        }
 	}
-
-    void OnGUI()
-    {
-        Rect pos = new Rect(20, 20, 100, 50);
-        GUI.Label(pos, (1 / Time.deltaTime).ToString());
-    }
 }

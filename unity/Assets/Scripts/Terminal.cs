@@ -12,12 +12,14 @@ public class Terminal : MonoBehaviour {
 	public string MiniGameName;
 
 	bool playerNear = false;
+	Transform playerMark;
 	PlayerMovement player;
 	
 	bool used = false;
 
 	// Use this for initialization
 	void Start () {
+		playerMark = transform.Find("PlayerMark");
 		player = GameObject.FindObjectOfType<PlayerMovement>();
 	}
 	

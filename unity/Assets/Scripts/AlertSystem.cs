@@ -12,7 +12,6 @@ public class AlertSystem : MonoBehaviour {
 	int currentStatus = STATUS_CLEAR;
 	Color targetColor = Color.red;
 	Vector3 lastPlayerPosition;
-    float lastPlayerSighting;
 	
 	// Use this for initialization
 	void Start () {
@@ -25,22 +24,12 @@ public class AlertSystem : MonoBehaviour {
 			case STATUS_CLEAR:
 				break;
 			case STATUS_CAUTION:
-                DefaultLight();
 				break;
 			case STATUS_ALERT:
 				AlertLight();
-                if (GetSightingDelta() > 30f)
-                {
-                    currentStatus = STATUS_CAUTION;
-                }
 				break;
 		}
 	}
-
-    void DefaultLight()
-    {
-        mainLight.color = Color.white;
-    }
 	
 	void AlertLight(){
 		if(mainLight.color != targetColor){
@@ -57,7 +46,6 @@ public class AlertSystem : MonoBehaviour {
 	public void Alert(Vector3 playerPosition){
 		currentStatus = STATUS_ALERT;
 		lastPlayerPosition = playerPosition;
-        lastPlayerSighting = Time.time;
 		foreach(GuardAlertness guard in GameObject.FindObjectsOfType<GuardAlertness>()){
 			guard.Alert();
 		}
@@ -70,9 +58,4 @@ public class AlertSystem : MonoBehaviour {
 	public Vector3 GetLastPlayerPosition(){
 		return lastPlayerPosition;
 	}
-
-    public float GetSightingDelta()
-    {
-        return Time.time - lastPlayerSighting;
-    }
 }
