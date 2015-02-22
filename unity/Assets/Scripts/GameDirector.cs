@@ -5,12 +5,10 @@ public class GameDirector : MonoBehaviour {
 	
 	Animator animator;
 	PlayerMovement player;
-
     Occluder occluder;
 
 	public static bool gamePaused = false;
 	Component pauseMenu = null;
-
 
 	// Use this for initialization
 	void Start () {
@@ -39,8 +37,9 @@ public class GameDirector : MonoBehaviour {
 	
 	void SlideOut(){
 		animator.SetTrigger("SlideOut");
-       		occluder.TransitionOut();
+       	occluder.TransitionOut();
 		Invoke("NextLevel", 1.3f);
+
 	}
 	
 	void Restart(){
