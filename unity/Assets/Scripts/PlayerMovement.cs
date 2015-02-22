@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	Transform gun;
 	Vector3 aimTarget;
 	bool dead = false;
+    float velocity;
 
 	// Use this for initialization
 	void Start () {
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void UpdateMovement(){
-		
+        Vector3 startPos = transform.position;
 	
 		Camera camera = Camera.main;
 		Vector3 cameraForward = Vector3.ProjectOnPlane(camera.transform.forward, Vector3.up).normalized;
@@ -71,6 +72,7 @@ public class PlayerMovement : MonoBehaviour {
 		animator.SetFloat("Velocity", controller.velocity.magnitude);
 		
 		controller.Move(Vector3.down*9.81f*Time.deltaTime);
+        velocity = (transform.position - startPos).magnitude;
 	}
 	
 	void UpdateGun(){
@@ -142,6 +144,11 @@ public class PlayerMovement : MonoBehaviour {
 		outsideInput = input;
 		useOutsideInput = true;
 	}
+
+    public bool IsMoving()
+    {
+        return velocity != 0f;
+    }
 	
 	public void SetFaceTarget(Vector3 target){
 		target.y = 0f;
