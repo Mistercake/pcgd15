@@ -12,6 +12,7 @@ public class GameDirector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        occluder = GameObject.FindObjectOfType<Occluder>();
 		animator = GetComponent<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 	}
@@ -36,9 +37,9 @@ public class GameDirector : MonoBehaviour {
 	}
 	
 	void SlideOut(){
-		animator.SetTrigger("SlideOut");
+		//animator.SetTrigger("SlideOut");
        	occluder.TransitionOut();
-		Invoke("NextLevel", 1.3f);
+		Invoke("Restart", 1.3f);
 
 	}
 	
@@ -51,7 +52,7 @@ public class GameDirector : MonoBehaviour {
 	}
 
 	public void Win(){
-		animator.SetTrigger("Victory");
+		//animator.SetTrigger("Victory");
 		Invoke("SlideOut", 1f);
 	}
 }

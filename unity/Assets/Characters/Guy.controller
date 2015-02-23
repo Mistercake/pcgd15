@@ -96,7 +96,7 @@ BlendTree:
     m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: c0e3e0bc736c0b34d97e2350d6f0626d, type: 3}
     m_Threshold: .333333343
-    m_Position: {x: -1, y: 0}
+    m_Position: {x: 1, y: 0}
     m_TimeScale: 2
     m_CycleOffset: 0
     m_IsAnim: 1
@@ -110,7 +110,7 @@ BlendTree:
     m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: 9bf095d63348223459f9a54d2ed6f46b, type: 3}
     m_Threshold: 1
-    m_Position: {x: 1, y: 0}
+    m_Position: {x: -1, y: 0}
     m_TimeScale: 2
     m_CycleOffset: 0
     m_IsAnim: 1
@@ -838,12 +838,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110209474}
-      second:
-      - {fileID: 110144440}
-      - {fileID: 110104236}
-      - {fileID: 110105216}
-    data:
       first: {fileID: 0}
       second:
       - {fileID: 110181692}
@@ -894,6 +888,12 @@ StateMachine:
       first: {fileID: 110265262}
       second:
       - {fileID: 110149780}
+    data:
+      first: {fileID: 110209474}
+      second:
+      - {fileID: 110144440}
+      - {fileID: 110104236}
+      - {fileID: 110105216}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 240, y: -276, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
