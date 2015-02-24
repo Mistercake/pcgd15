@@ -63,7 +63,7 @@ public class Terminal : MonoBehaviour {
 	
 	public void MiniGameFinished(bool IsBonusGoalReached){
 		target.SendMessage(targetMethodName);
-		if(IsBonusGoalReached) bonusTarget.SendMessage(bonusTargetMethodName);
+		if(IsBonusGoalReached && bonusTarget) bonusTarget.SendMessage(bonusTargetMethodName);
 		player.SetMovement(true);
 	}
 	
