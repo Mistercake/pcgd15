@@ -17,9 +17,13 @@ public class GuardMovement : MonoBehaviour
     float defaultStoppingDistance = 1f;
     bool reachedNode = false;
     Transform punchVolume;
+    AudioSource step;
+    AudioSource losePlayer;
 
     bool search = false;
     bool dead = false;
+
+    float stepTime = 0f;
 
     // Use this for initialization
     void Start()
@@ -34,6 +38,15 @@ public class GuardMovement : MonoBehaviour
         vision = gameObject.GetComponent<GuardVision>();
         alert = GameObject.FindGameObjectWithTag("AlertSystem").GetComponent<AlertSystem>();
         punchVolume = transform.Find("CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/PunchVolume");
+
+        AudioSource[] audios = GetComponents<AudioSource>();
+        step = audios[0];
+        losePlayer = audios[2];
+    }
+
+    void Awake()
+    {
+
     }
 
     // Update is called once per frame
@@ -133,6 +146,7 @@ public class GuardMovement : MonoBehaviour
                     if (alert.GetSightingDelta() > 5f && Mathf.Round(agent.remainingDistance) <= Mathf.Round(agent.stoppingDistance))
                     {
                         Debug.Log("Search");
+                        losePlayer.Play();
                         search = true;
                     }
                 }
@@ -210,5 +224,14 @@ public class GuardMovement : MonoBehaviour
     public void DisablePunch()
     {
         punchVolume.gameObject.SetActive(false);
+    }
+
+    public void Step()
+    {
+        if (Time.time - stepTime > 0.1f)
+        {
+            step.Play();
+            stepTime = Time.time;
+        }
     }
 }

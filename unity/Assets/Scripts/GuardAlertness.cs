@@ -15,11 +15,14 @@ public class GuardAlertness : MonoBehaviour
     AlertSystem globalAlert;
     GuardVision vision;
 
+    AudioSource noticePlayer;
+
     // Use this for initialization
     void Start()
     {
         vision = gameObject.GetComponent<GuardVision>();
         globalAlert = GameObject.FindGameObjectWithTag("AlertSystem").GetComponent<AlertSystem>();
+        noticePlayer = GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
@@ -36,6 +39,10 @@ public class GuardAlertness : MonoBehaviour
 
     public void Alert()
     {
+        if (currentStatus != STATUS_ALERT)
+        {
+            noticePlayer.Play();
+        }
         currentStatus = STATUS_ALERT;
         statusTime = 0f;
     }

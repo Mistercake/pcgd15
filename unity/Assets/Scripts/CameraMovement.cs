@@ -9,8 +9,11 @@ public class CameraMovement : MonoBehaviour {
 	public float FOV = 30f;
 	public float lerpRate = 0.8f;
 
+    Transform microphone;
+
 	// Use this for initialization
 	void Start () {
+        microphone = transform.Find("Microphone");
 		Vector3 goalPos = target.position-(angle.normalized*distance);
 		transform.rotation = Quaternion.LookRotation(target.position-transform.position);
 		transform.position = goalPos;
@@ -25,5 +28,8 @@ public class CameraMovement : MonoBehaviour {
 		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target.position-transform.position), lerpRate);
 	 	transform.position = Vector3.Lerp(transform.position, goalPos, lerpRate);
 	 	camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, FOV, lerpRate);
+
+        microphone.position = target.position;
+        microphone.rotation = Quaternion.LookRotation(transform.forward);
 	}
 }
