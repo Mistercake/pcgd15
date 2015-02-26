@@ -7,11 +7,18 @@ public class Door : MonoBehaviour {
 	public bool StartOpen = false;
 	Animator animator;
 	bool open = false;
+
+    AudioSource soundOpen;
+    AudioSource soundClose;
 	
 	// Use this for initialization
 	void Start () {
 		animator = gameObject.GetComponent<Animator>();
 		if(StartOpen) Toggle();
+
+        AudioSource[] audios = GetComponents<AudioSource>();
+        soundOpen = audios[0];
+        soundClose = audios[1];
 	}
 	
 	// Update is called once per frame
@@ -51,4 +58,14 @@ public class Door : MonoBehaviour {
 		animator.SetTrigger("Close");
 		open = false;
 	}
+
+    public void OpenNoise()
+    {
+        soundOpen.Play();
+    }
+
+    public void CloseNoise()
+    {
+        soundClose.Play();
+    }
 }

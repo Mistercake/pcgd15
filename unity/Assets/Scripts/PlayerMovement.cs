@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 	Vector3 aimTarget;
 	bool dead = false;
     Vector3 velocity;
+    float stepTime = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -182,4 +183,13 @@ public class PlayerMovement : MonoBehaviour {
 	public bool IsDead(){
 		return dead;
 	}
+
+    public void Step()
+    {
+        if (Time.time - stepTime > 0.1f)
+        {
+            GetComponent<AudioSource>().Play();
+            stepTime = Time.time;
+        } 
+    }
 }
