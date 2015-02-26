@@ -35,7 +35,7 @@ public class Terminal : MonoBehaviour {
 		used = true;
 		player.SetMovement(false);
 		
-		GameObject minigame = (GameObject) Instantiate(Resources.Load("SnakeGame"), Vector3.zero, Quaternion.identity);
+		GameObject minigame = (GameObject) Instantiate(Resources.Load(MiniGameName), Vector3.zero, Quaternion.identity);
 		MiniGame game = minigame.GetComponent(typeof(MiniGame)) as MiniGame;
 		game.SetTerminal(this);
     }

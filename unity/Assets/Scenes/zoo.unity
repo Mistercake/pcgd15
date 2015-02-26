@@ -9860,7 +9860,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 776787836}
-  m_LocalRotation: {x: .168271109, y: -.828410208, z: .334870398, w: .416273117}
+  m_LocalRotation: {x: .168271109, y: -.828410149, z: .334870398, w: .416273087}
   m_LocalPosition: {x: 5.32000017, y: 10.6700001, z: 8.90999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -9960,7 +9960,7 @@ Transform:
   - {fileID: 258609501}
   - {fileID: 331442770}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
 --- !u!1 &808231252
 GameObject:
   m_ObjectHideFlags: 0
@@ -10717,7 +10717,7 @@ Transform:
   - {fileID: 1886308913}
   - {fileID: 240443752}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
 --- !u!1 &967018425
 GameObject:
   m_ObjectHideFlags: 0
@@ -11291,7 +11291,7 @@ MonoBehaviour:
   targetMethodName: OpenIn
   bonusTarget: {fileID: 7786999}
   bonusTargetMethodName: Disable
-  MiniGameName: 
+  MiniGameName: SnakeGame_level3
 --- !u!1 &1029031831
 GameObject:
   m_ObjectHideFlags: 0
@@ -11364,7 +11364,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 26
 --- !u!1 &1034125788
 GameObject:
   m_ObjectHideFlags: 0
@@ -11582,7 +11582,7 @@ Transform:
   - {fileID: 1743875463}
   - {fileID: 1293996625}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
 --- !u!1001 &1078188559
 Prefab:
   m_ObjectHideFlags: 0
@@ -12764,7 +12764,7 @@ Transform:
   - {fileID: 1897973212}
   - {fileID: 1241941582}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
 --- !u!1001 &1232264595
 Prefab:
   m_ObjectHideFlags: 0
@@ -15853,7 +15853,7 @@ Transform:
   - {fileID: 264612044}
   - {fileID: 751380327}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
 --- !u!1 &1522998553
 GameObject:
   m_ObjectHideFlags: 0
@@ -17723,7 +17723,7 @@ Transform:
   - {fileID: 1996071295}
   - {fileID: 1469315529}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
 --- !u!1 &1669311681
 GameObject:
   m_ObjectHideFlags: 0
