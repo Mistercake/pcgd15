@@ -12,6 +12,7 @@ public class SecurityCamera : MonoBehaviour {
 	Transform player;
 	Transform light;
 	float alertBuffer = 0f;
+    float noiseTimer = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -36,12 +37,14 @@ public class SecurityCamera : MonoBehaviour {
 			RaycastHit hit;
 			
 			if (Physics.Raycast(lens.position, (playerTarget-lens.position), out hit)){
-				Debug.Log(hit.transform);
+				//Debug.Log(hit.transform);
 				if(hit.transform.tag == "Player"){
 					hitColor = Color.red;
 					alertBuffer += Time.deltaTime;
 					if(alertBuffer > 1.5f){
 						GameObject.FindGameObjectWithTag("AlertSystem").GetComponent<AlertSystem>().Alert(player.position);
+                        Noise();
+                        alertBuffer = 0f;
 					}
 					Debug.Log("Security Camera Alert");
 				}
@@ -51,4 +54,12 @@ public class SecurityCamera : MonoBehaviour {
 		}
 		light.GetComponent<LensFlare>().color = hitColor;
 	}
+
+    void Noise()
+    {
+        if (Time.time - noiseTimer > 0.1f)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+    }
 }

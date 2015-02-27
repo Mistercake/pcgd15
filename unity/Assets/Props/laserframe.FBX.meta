@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 683686ee6c040784382c0e2cb3c613ec
+guid: dba54607271942d4080b4ee80830e40b
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Box001
+    4300000: Laserframe
     9500000: //RootNode
   materials:
     importMaterials: 1

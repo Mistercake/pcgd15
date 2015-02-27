@@ -9,6 +9,9 @@ TagManager:
   - Guard
   - GameDirector
   - 
+  - Obstacle
+  - Goal
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -19,8 +22,8 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: Wires
   User Layer 9: Enemies
-  User Layer 10: 
-  User Layer 11: 
+  User Layer 10: Player
+  User Layer 11: Minigames
   User Layer 12: 
   User Layer 13: 
   User Layer 14: 

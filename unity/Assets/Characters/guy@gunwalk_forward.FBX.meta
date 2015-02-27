@@ -1,0 +1,211 @@
+fileFormatVersion: 2
+guid: d6721fba504dfb54b92952fb5c97a637
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: CATRigHead
+    100002: CATRigLArm1
+    100004: CATRigLArm2
+    100006: CATRigLArmCollarbone
+    100008: CATRigLArmPalm
+    100010: CATRigLLeg1
+    100012: CATRigLLeg2
+    100014: CATRigLLegAnkle
+    100016: CATRigLLegPlatform
+    100018: CATRigPelvis
+    100020: CATRigRArm1
+    100022: CATRigRArm2
+    100024: CATRigRArmCollarbone
+    100026: CATRigRArmPalm
+    100028: CATRigRLeg1
+    100030: CATRigRLeg2
+    100032: CATRigRLegAnkle
+    100034: CATRigRLegPlatform
+    100036: CATRigSpine1
+    100038: CATRigSpine1 1
+    100040: CATRigSpine2
+    100042: CATRigSpine2 1
+    100044: CATRigTorso
+    100046: Guy
+    100048: Guy 1
+    100050: //RootNode
+    400000: CATRigHead
+    400002: CATRigLArm1
+    400004: CATRigLArm2
+    400006: CATRigLArmCollarbone
+    400008: CATRigLArmPalm
+    400010: CATRigLLeg1
+    400012: CATRigLLeg2
+    400014: CATRigLLegAnkle
+    400016: CATRigLLegPlatform
+    400018: CATRigPelvis
+    400020: CATRigRArm1
+    400022: CATRigRArm2
+    400024: CATRigRArmCollarbone
+    400026: CATRigRArmPalm
+    400028: CATRigRLeg1
+    400030: CATRigRLeg2
+    400032: CATRigRLegAnkle
+    400034: CATRigRLegPlatform
+    400036: CATRigSpine1
+    400038: CATRigSpine1 1
+    400040: CATRigSpine2
+    400042: CATRigSpine2 1
+    400044: CATRigTorso
+    400046: Guy
+    400048: Guy 1
+    400050: //RootNode
+    4300000: Guy
+    7400000: gunwalk_forward
+    9500000: //RootNode
+    13700000: Guy
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: gunwalk_forward
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: .04265403
+        functionName: Step
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 9c35ceee340094e4dac1000a0755b5ae,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: .549763024
+        functionName: Step
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 9c35ceee340094e4dac1000a0755b5ae,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CATRigLLegPlatform
+        weight: 1
+      - path: CATRigPelvis
+        weight: 1
+      - path: CATRigPelvis/CATRigLLeg1
+        weight: 1
+      - path: CATRigPelvis/CATRigLLeg1/CATRigLLeg2
+        weight: 1
+      - path: CATRigPelvis/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle
+        weight: 1
+      - path: CATRigPelvis/CATRigRLeg1
+        weight: 1
+      - path: CATRigPelvis/CATRigRLeg1/CATRigRLeg2
+        weight: 1
+      - path: CATRigPelvis/CATRigRLeg1/CATRigRLeg2/CATRigRLegAnkle
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigLArmCollarbone
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigLArmCollarbone/CATRigLArm1
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigRArmCollarbone
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigRArmCollarbone/CATRigRArm1
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigSpine1 1
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigSpine1 1/CATRigSpine2
+          1
+        weight: 1
+      - path: CATRigPelvis/CATRigSpine1/CATRigSpine2/CATRigTorso/CATRigSpine1 1/CATRigSpine2
+          1/CATRigHead
+        weight: 1
+      - path: CATRigRLegPlatform
+        weight: 1
+      - path: Guy
+        weight: 1
+      - path: Guy 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
