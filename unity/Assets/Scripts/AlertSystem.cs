@@ -14,11 +14,12 @@ public class AlertSystem : MonoBehaviour
     Color targetColor = Color.red;
     Vector3 lastPlayerPosition;
     float lastPlayerSighting;
+    Audio_fade_manager music;
 
     // Use this for initialization
     void Start()
     {
-
+        music = GameObject.FindObjectOfType<Audio_fade_manager>();
     }
 
     // Update is called once per frame
@@ -27,11 +28,14 @@ public class AlertSystem : MonoBehaviour
         switch (currentStatus)
         {
             case STATUS_CLEAR:
+                music.alarmMusic = false;
                 break;
             case STATUS_CAUTION:
                 DefaultLight();
+                music.alarmMusic = false;
                 break;
             case STATUS_ALERT:
+                music.alarmMusic = true;
                 AlertLight();
                 if (GetSightingDelta() > 30f)
                 {

@@ -19,6 +19,7 @@ public class GuardMovement : MonoBehaviour
     Transform punchVolume;
     AudioSource step;
     AudioSource losePlayer;
+    AudioSource cry;
 
     bool search = false;
     bool dead = false;
@@ -42,6 +43,7 @@ public class GuardMovement : MonoBehaviour
         AudioSource[] audios = GetComponents<AudioSource>();
         step = audios[0];
         losePlayer = audios[2];
+        cry = audios[3];
     }
 
     void Awake()
@@ -205,6 +207,7 @@ public class GuardMovement : MonoBehaviour
 
     public void Die()
     {
+        cry.Play();
         dead = true;
         animator.SetTrigger("Die");
         DisablePunch();
