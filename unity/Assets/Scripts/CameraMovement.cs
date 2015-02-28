@@ -13,6 +13,10 @@ public class CameraMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         microphone = transform.Find("Microphone");
 		Vector3 goalPos = target.position-(angle.normalized*distance);
 		transform.rotation = Quaternion.LookRotation(target.position-transform.position);

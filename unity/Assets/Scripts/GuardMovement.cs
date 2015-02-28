@@ -24,11 +24,17 @@ public class GuardMovement : MonoBehaviour
     bool search = false;
     bool dead = false;
 
+    bool spinner = false;
+
     float stepTime = 0f;
 
     // Use this for initialization
     void Start()
     {
+        if (targetNode == null)
+        {
+            spinner = true;
+        }
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.updatePosition = false;
         agent.updateRotation = false;
@@ -111,7 +117,17 @@ public class GuardMovement : MonoBehaviour
         {
             case GuardAlertness.STATUS_CLEAR: // IF CLEAR
                 agent.speed = 1;
-                WalkPath();
+                if (spinner)
+                {
+                    if (lookAroundTimer == 0f)
+                    {
+                        transform.Rotate(Vector3.up, Time.deltaTime * 90f);
+                    }
+                }
+                else
+                {
+                    WalkPath();
+                }
                 break;
 
             case GuardAlertness.STATUS_CAUTION: // IF CAUTION
