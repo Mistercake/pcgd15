@@ -982,7 +982,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .358808041, y: 11.3050299, z: -1.715868}
+  m_LocalPosition: {x: -24.0787106, y: .667832375, z: -45.4216499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430030}
@@ -1751,7 +1751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a72cc23eb515b44ad5218f03a088fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linerendererMat: {fileID: 0}
+  linerendererMat: {fileID: 2100000, guid: 0d219590225509f40897460bd539ce48, type: 2}
   targetToFollow: {fileID: 130040}
 --- !u!124 &12430090
 Behaviour:
