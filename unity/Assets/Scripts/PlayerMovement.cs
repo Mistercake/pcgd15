@@ -133,30 +133,19 @@ public class PlayerMovement : MonoBehaviour {
 		controller.Move(Vector3.down*9.81f*Time.deltaTime);
         velocity = (transform.position - startPos);
 	}
-
-    public void OnGUI()
-    {
-
-
-    }
 	
 	void UpdateGun(){
-        if (Input.GetButtonDown("AimMouse")) Debug.Log("Aim");
-		if (Input.GetButtonDown("AimMouse") || Input.GetAxis("AimStick") > 0.1f){
-            if (Input.GetAxis("AimStick") > 0.1f)
-            {
-                stickControl = true;
-            }
-            else
-            {
-                stickControl = false;
-            }
 
+		if (Input.GetButtonDown("AimMouse") || Input.GetAxis("AimStick") > 0.1f){
+            if (Input.GetButtonDown("AimMouse")) stickControl = false;
+            else stickControl = true;
+            
 			aiming = true;
 			animator.SetBool("Aiming", aiming);
 			gun.Find("loading").particleSystem.Play();
+            
 		}
-        if (Input.GetButtonUp("AimMouse") || Input.GetAxis("AimStick") < 0.1f)
+        if (Input.GetButtonUp("AimMouse") || (stickControl && Input.GetAxis("AimStick") < 0.1f))
         {
 			aiming = false;
 			animator.SetBool("Aiming", aiming);
