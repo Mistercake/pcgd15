@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	bool useOutsideInput = false;
 	Vector3 faceTarget = Vector3.zero;
 	bool useFaceTarget = false;
-	bool aiming = false;
+	public bool aiming = false;
 	float gunCharge = 0f;
 	Transform gun;
 	Vector3 aimTarget;
@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour {
     AudioSource electrify;
     AudioSource gunLoad;
     AudioSource gunFire;
+    bool shootHold = false;
+    public bool stickControl = false;
 
 	// Use this for initialization
 	void Start () {
@@ -76,13 +78,25 @@ public class PlayerMovement : MonoBehaviour {
                     {
                         gunLoad.Play();
                     }
-					Plane playerFeet = new Plane(Vector3.up, transform.position);
-					Ray aimRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-					float enter = 0f;
-					if(playerFeet.Raycast(aimRay, out enter)){
-						aimTarget = aimRay.GetPoint(enter);
-						transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, aimTarget-transform.position, 0.5f, 0f));
-					}
+                    if (!stickControl)
+                    {
+                        Plane playerFeet = new Plane(Vector3.up, transform.position);
+                        Ray aimRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                        float enter = 0f;
+                        if (playerFeet.Raycast(aimRay, out enter))
+                        {
+                            aimTarget = aimRay.GetPoint(enter);
+                            transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, aimTarget - transform.position, 0.5f, 0f));
+                        }
+                    }
+                    else
+                    {
+                        aimTarget = transform.position + cameraForward * Input.GetAxis("Vertical2") + cameraRight * Input.GetAxis("Horizontal2");
+                        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, aimTarget - transform.position, 0.5f, 0f));
+                    }
+                   
+                    
+                    
                     RaycastHit hit;
                     Vector3 rayDirection = (aimTarget - laserStart.position);
                     rayDirection.y = 0f;
@@ -127,12 +141,23 @@ public class PlayerMovement : MonoBehaviour {
     }
 	
 	void UpdateGun(){
-		if(Input.GetButtonDown("Aim")){
+        if (Input.GetButtonDown("AimMouse")) Debug.Log("Aim");
+		if (Input.GetButtonDown("AimMouse") || Input.GetAxis("AimStick") > 0.1f){
+            if (Input.GetAxis("AimStick") > 0.1f)
+            {
+                stickControl = true;
+            }
+            else
+            {
+                stickControl = false;
+            }
+
 			aiming = true;
 			animator.SetBool("Aiming", aiming);
 			gun.Find("loading").particleSystem.Play();
 		}
-		if(Input.GetButtonUp("Aim")){
+        if (Input.GetButtonUp("AimMouse") || Input.GetAxis("AimStick") < 0.1f)
+        {
 			aiming = false;
 			animator.SetBool("Aiming", aiming);
 			gun.Find("loading").particleSystem.Stop();
@@ -158,9 +183,14 @@ public class PlayerMovement : MonoBehaviour {
 			gun.Find("ready").particleSystem.Stop();
 		}
 		
-		if(Input.GetButtonDown("Fire1") && gunCharge >= 1){
+		if((Input.GetButtonDown("Fire1") || Input.GetAxis("Fire1") > 0.1f) && !shootHold && gunCharge >= 1){
+            shootHold = true;
 			Shoot();
 		}
+        if (Input.GetAxis("Fire1") < 0.1f)
+        {
+            shootHold = false;
+        }
 	}
 	
 	void Shoot(){
