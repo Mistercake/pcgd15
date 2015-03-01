@@ -84,7 +84,9 @@ public class PlayerMovement : MonoBehaviour {
 						transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, aimTarget-transform.position, 0.5f, 0f));
 					}
                     RaycastHit hit;
-                    if (Physics.Raycast(laserStart.position, (aimTarget - laserStart.position), out hit))
+                    Vector3 rayDirection = (aimTarget - laserStart.position);
+                    rayDirection.y = 0f;
+                    if (Physics.Raycast(laserStart.position, laserStart.forward, out hit))
                     {
                         
                         Quaternion rotForwardToUp = Quaternion.FromToRotation(Vector3.forward, Vector3.up);

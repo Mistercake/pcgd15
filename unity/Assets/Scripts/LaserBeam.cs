@@ -30,16 +30,4 @@ public class LaserBeam : MonoBehaviour {
             timer += (speed / Vector3.Distance(startPoint, endPoint)) * Time.deltaTime;
         }
 	}
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            other.GetComponent<PlayerMovement>().Die();
-        }
-        if (other.tag == "Guard")
-        {
-            other.GetComponent<GuardMovement>().Die();
-        }
-    }
 }

@@ -11,8 +11,9 @@ GameObject:
   - 33: {fileID: 3372172}
   - 23: {fileID: 2372172}
   - 65: {fileID: 6584636}
-  - 114: {fileID: 11401838}
-  - 82: {fileID: 8250872}
+  - 54: {fileID: 5409226}
+  - 114: {fileID: 11469258}
+  - 82: {fileID: 8254204}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -77,9 +78,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172168}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .200000003, y: 3, z: .200000003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.171, y: 1.12800002, z: .0289999992}
+  m_LocalScale: {x: .200000003, y: 1, z: .200000003}
   m_Children:
   - {fileID: 472170}
   - {fileID: 472172}
@@ -176,6 +177,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172170}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5409226
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172168}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6584636
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -188,7 +204,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .200000003, y: 1, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &8250872
+--- !u!82 &8254204
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -198,14 +214,14 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 54a79e933c0f7414b8702c112777eced, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .200000003
+  m_Volume: .699999988
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 3
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -246,7 +262,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11401838
+--- !u!114 &11469258
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -254,12 +270,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 172168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd7b12904c6f5042bcaabbfdebbcf70, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e692f9a55075274ea2589fb650bd443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 2, z: 0}
-  startPhase: 1
-  speed: 1
 --- !u!198 &19872172
 ParticleSystem:
   m_ObjectHideFlags: 1
