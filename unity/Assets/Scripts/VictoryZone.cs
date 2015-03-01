@@ -15,7 +15,7 @@ public class VictoryZone : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other){
 		if(other.tag == "Player"){
-			GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>().Win();
+			GameObject.FindObjectOfType<GameDirector>().Win();
 		}
 	}
 }

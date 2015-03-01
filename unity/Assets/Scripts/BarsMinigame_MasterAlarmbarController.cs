@@ -8,6 +8,7 @@ public class BarsMinigame_MasterAlarmbarController : MonoBehaviour {
 
 	private ArrayList allChilds = new ArrayList();
 	private int currentIndex;
+    float throttle = 0f;
 
 
 	void Start() {
@@ -28,12 +29,15 @@ public class BarsMinigame_MasterAlarmbarController : MonoBehaviour {
 	// Can be rewritten to call any input-handler, mind the currentIndex correction at the end!!
 	void CheckInput() {
 
-		if (Input.GetAxis("Right") > 0.1f) {
-			currentIndex++;	
+		if (Input.GetAxis("Right") > 0.1f && (Time.time - throttle > 0.1f)) {
+			currentIndex++;
+            throttle = Time.time;
 		}
 
-		if (Input.GetAxis("Right") < -0.1f) {
-			currentIndex--;	
+        if (Input.GetAxis("Right") < -0.1f && (Time.time - throttle > 0.1f))
+        {
+			currentIndex--;
+            throttle = Time.time;
 		}
 
 		if (currentIndex < 0) {
