@@ -25,6 +25,7 @@ public class BarsMinigame_CollissionDetector : MonoBehaviour {
 	}
 
 	void GoalReached() {
+        FindObjectOfType<BarsGame>().GoalReached();
 		Debug.Log ("GoalReached was called");
 		MasterAlarmBar.StopAllBars ();
 		ProgressBar.moving = false;

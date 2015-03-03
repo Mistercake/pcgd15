@@ -41,7 +41,8 @@ public class VentLaser : MonoBehaviour {
             pos = 0f;
         }
         transform.position = Vector3.Lerp(from, to, pos);
-        pos += Time.deltaTime*speed;
+        pos = (Vector3.Distance(from, to)*pos+speed*Time.deltaTime)/Vector3.Distance(from,to);
+       // pos += Time.deltaTime*speed;
         pos = Mathf.Clamp(pos,0,1);
 	}
 }

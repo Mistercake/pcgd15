@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432634}
   - 114: {fileID: 11432666}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432636}
   - 212: {fileID: 21232666}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player_bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432638}
   - 114: {fileID: 11432668}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432640}
   - 114: {fileID: 11432670}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Progress_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - 4: {fileID: 432642}
   - 212: {fileID: 21232668}
   - 61: {fileID: 6132670}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432644}
   - 114: {fileID: 11432672}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - 4: {fileID: 432646}
   - 212: {fileID: 21232670}
   - 61: {fileID: 6132672}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - 4: {fileID: 432648}
   - 212: {fileID: 21232672}
   - 61: {fileID: 6132674}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432650}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BarsMinigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,6 @@ GameObject:
   - 20: {fileID: 2032692}
   - 92: {fileID: 9232692}
   - 124: {fileID: 12432692}
-  - 81: {fileID: 8132692}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -175,7 +174,7 @@ GameObject:
   - 4: {fileID: 432654}
   - 212: {fileID: 21232674}
   - 61: {fileID: 6132676}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -191,7 +190,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432656}
   - 114: {fileID: 11432674}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +207,7 @@ GameObject:
   - 4: {fileID: 432658}
   - 212: {fileID: 21232676}
   - 61: {fileID: 6132678}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -225,7 +224,7 @@ GameObject:
   - 4: {fileID: 432660}
   - 212: {fileID: 21232678}
   - 61: {fileID: 6132680}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -243,7 +242,7 @@ GameObject:
   - 212: {fileID: 21232680}
   - 95: {fileID: 9532692}
   - 61: {fileID: 6132682}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Progress_bar_goal
   m_TagString: Goal_bar
   m_Icon: {fileID: 0}
@@ -260,7 +259,7 @@ GameObject:
   - 4: {fileID: 432664}
   - 212: {fileID: 21232682}
   - 61: {fileID: 6132684}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -276,7 +275,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432666}
   - 114: {fileID: 11432676}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +291,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432668}
   - 212: {fileID: 21232684}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +308,7 @@ GameObject:
   - 4: {fileID: 432670}
   - 212: {fileID: 21232686}
   - 61: {fileID: 6132686}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -325,7 +324,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432672}
   - 114: {fileID: 11432678}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +340,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432674}
   - 114: {fileID: 11432680}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +357,7 @@ GameObject:
   - 4: {fileID: 432676}
   - 212: {fileID: 21232688}
   - 61: {fileID: 6132688}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -374,7 +373,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432678}
   - 114: {fileID: 11432682}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +389,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432680}
   - 114: {fileID: 11432684}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +408,7 @@ GameObject:
   - 61: {fileID: 6132690}
   - 114: {fileID: 11432686}
   - 50: {fileID: 5032692}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Progress_bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +424,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432684}
   - 114: {fileID: 11432688}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +441,7 @@ GameObject:
   - 4: {fileID: 432686}
   - 212: {fileID: 21232692}
   - 61: {fileID: 6132692}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar
   m_TagString: Alarm_bar
   m_Icon: {fileID: 0}
@@ -459,7 +458,7 @@ GameObject:
   - 4: {fileID: 432688}
   - 131: {fileID: 13132692}
   - 114: {fileID: 11432690}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FailFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +474,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432690}
   - 114: {fileID: 11432692}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alarm_bar_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -880,7 +879,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.18196106, y: 6.8950758, z: -12.1722507}
+  m_LocalPosition: {x: 15.1176128, y: 1.96337223, z: -15.314662}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 432652}
@@ -908,7 +907,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5.58136272
-  m_Depth: -1
+  m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 2048
@@ -1066,13 +1065,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .319999993, y: .319999993}
   m_Center: {x: 0, y: 0}
---- !u!81 &8132692
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132652}
-  m_Enabled: 1
 --- !u!92 &9232692
 Behaviour:
   m_ObjectHideFlags: 1

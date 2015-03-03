@@ -4,11 +4,14 @@ using System.Collections;
 public class VentDoor : MonoBehaviour {
 
 	Animator animator;
+    LensFlare light;
 	public bool locked;
 
 	// Use this for initialization
 	void Start () {
 		animator = gameObject.GetComponent<Animator>();
+        light = transform.Find("Light").GetComponent<LensFlare>();
+        if (!locked) light.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -27,4 +30,10 @@ public class VentDoor : MonoBehaviour {
 			animator.SetTrigger("Close");
 		}
 	}
+
+    public void Unlock()
+    {
+        locked = false;
+        light.gameObject.SetActive(false);
+    }
 }

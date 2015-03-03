@@ -17,6 +17,7 @@ public class Door : MonoBehaviour {
 		if(StartOpen) Toggle();
 
         AudioSource[] audios = GetComponents<AudioSource>();
+        Debug.Log(audios.Length);
         soundOpen = audios[0];
         soundClose = audios[1];
 	}

@@ -20,7 +20,11 @@ public class GameDirector : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(player.IsDead()) Invoke("SlideOut", 1f);
+        if (player.IsDead())
+        {
+            Invoke("SlideOut", 1f);
+            Invoke("Restart", 2.3f);
+        }
 		// show pause menu when esc pressed
 		if (Input.GetKeyDown ("escape")) {
 			if (!gamePaused) {
@@ -39,8 +43,6 @@ public class GameDirector : MonoBehaviour {
 	void SlideOut(){
 		//animator.SetTrigger("SlideOut");
        	occluder.TransitionOut();
-		Invoke("Restart", 1.3f);
-
 	}
 	
 	void Restart(){
@@ -54,5 +56,6 @@ public class GameDirector : MonoBehaviour {
 	public void Win(){
 		//animator.SetTrigger("Victory");
 		Invoke("SlideOut", 1f);
+        Invoke("NextLevel", 2.3f);
 	}
 }

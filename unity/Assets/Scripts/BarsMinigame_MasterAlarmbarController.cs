@@ -9,6 +9,7 @@ public class BarsMinigame_MasterAlarmbarController : MonoBehaviour {
 	private ArrayList allChilds = new ArrayList();
 	private int currentIndex;
     float throttle = 0f;
+    bool freeze = false;
 
 
 	void Start() {
@@ -28,6 +29,7 @@ public class BarsMinigame_MasterAlarmbarController : MonoBehaviour {
 
 	// Can be rewritten to call any input-handler, mind the currentIndex correction at the end!!
 	void CheckInput() {
+        if (freeze) return;
 
 		if (Input.GetAxis("Right") > 0.1f && (Time.time - throttle > 0.1f)) {
 			currentIndex++;
@@ -48,7 +50,7 @@ public class BarsMinigame_MasterAlarmbarController : MonoBehaviour {
 		}
 
 		// this will be replaced by current action-button
-		if (Input.GetKeyDown(KeyCode.Space)) {
+		if (Input.GetButtonDown("Action")) {
 			PushAlarmBarInIndex(currentIndex);
 		}
 	}
@@ -62,6 +64,7 @@ public class BarsMinigame_MasterAlarmbarController : MonoBehaviour {
 	}
 
 	public void StopAllBars() {
+        freeze = true;
 		foreach (Transform child in allChilds)
 		{
 			child.GetComponentInChildren<AlarmBarController>().moving = false;

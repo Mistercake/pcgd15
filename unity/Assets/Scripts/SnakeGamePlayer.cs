@@ -28,13 +28,13 @@ public class SnakeGamePlayer : MonoBehaviour {
 
 	// Checks for user input, simple as that ;)
 	void CheckInput() {
-		if (Input.GetButtonDown("Up") && direction != 3)
+		if (Input.GetAxis("Up") > 0.1f && direction != 3)
 						direction = 1;
-		if (Input.GetButtonDown("Right") && direction != 4)
+		if (Input.GetAxis("Right") > 0.1f && direction != 4)
 						direction = 2;
-		if (Input.GetButtonDown("Down") && direction != 1)
+		if (Input.GetAxis("Up") < -0.1f && direction != 1)
 						direction = 3;
-		if (Input.GetButtonDown("Left") && direction != 2)
+		if (Input.GetAxis("Right") < -0.1f && direction != 2)
 						direction = 4;
 	}
 

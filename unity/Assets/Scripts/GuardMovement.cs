@@ -15,11 +15,14 @@ public class GuardMovement : MonoBehaviour
     GuardVision vision;
     float lookAroundTimer = 0f;
     float defaultStoppingDistance = 1f;
-    bool reachedNode = false;
+    bool reachedNode = true;
     Transform punchVolume;
     AudioSource step;
     AudioSource losePlayer;
     AudioSource cry;
+
+    Vector3 suspiciousPosition;
+    bool moveToInvestigate = false;
 
     bool search = false;
     bool dead = false;
@@ -126,13 +129,27 @@ public class GuardMovement : MonoBehaviour
                 }
                 else
                 {
-                    WalkPath();
+                    if (moveToInvestigate)
+                    {
+                        Investigate();
+                    }
+                    else
+                    {
+                        WalkPath();
+                    }
                 }
                 break;
 
             case GuardAlertness.STATUS_CAUTION: // IF CAUTION
                 agent.speed = 1.5f;
-                WalkPath();
+                if (moveToInvestigate)
+                {
+                    Investigate();
+                }
+                else
+                {
+                    WalkPath();
+                }
                 break;
 
             case GuardAlertness.STATUS_ALERT: // IF ALERT
@@ -251,6 +268,30 @@ public class GuardMovement : MonoBehaviour
         {
             step.Play();
             stepTime = Time.time;
+        }
+    }
+
+    public void SetInvestigation(Vector3 pos)
+    {
+        Debug.Log("Investigating");
+        suspiciousPosition = pos;
+        moveToInvestigate = true;
+    }
+
+    void Investigate()
+    {
+        agent.SetDestination(suspiciousPosition);
+        if (agent.remainingDistance <= agent.stoppingDistance)
+        {
+            if (moveToInvestigate)
+            {
+                lookAroundTimer += 6f;
+                moveToInvestigate = false;
+            }
+        }
+        else
+        {
+            moveToInvestigate = true;
         }
     }
 }

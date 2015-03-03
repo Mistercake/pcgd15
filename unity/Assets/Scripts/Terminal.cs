@@ -14,6 +14,7 @@ public class Terminal : MonoBehaviour {
 	bool playerNear = false;
 	Transform playerMark;
 	PlayerMovement player;
+    TerminalScreenScroll screen;
 	
 	bool used = false;
 
@@ -21,6 +22,7 @@ public class Terminal : MonoBehaviour {
 	void Start () {
 		playerMark = transform.Find("PlayerMark");
 		player = GameObject.FindObjectOfType<PlayerMovement>();
+        screen = transform.Find("Screen").GetComponent<TerminalScreenScroll>();
 	}
 	
 	// Update is called once per frame
@@ -59,12 +61,14 @@ public class Terminal : MonoBehaviour {
 	
 	public void MiniGameQuit(){
 		player.SetMovement(true);
+        used = false;
 	}
 	
 	public void MiniGameFinished(bool IsBonusGoalReached){
 		target.SendMessage(targetMethodName);
 		if(IsBonusGoalReached && bonusTarget) bonusTarget.SendMessage(bonusTargetMethodName);
 		player.SetMovement(true);
+        screen.setColor(Color.green);
 	}
 	
 	

@@ -297,9 +297,9 @@ InputManager:
     m_Name: Up
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: s
     positiveButton: w
-    altNegativeButton: 
+    altNegativeButton: down
     altPositiveButton: up
     gravity: 1000
     dead: .00100000005
@@ -313,9 +313,9 @@ InputManager:
     m_Name: Up
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: s
     positiveButton: w
-    altNegativeButton: 
+    altNegativeButton: down
     altPositiveButton: up
     gravity: 1000
     dead: .00100000005
@@ -329,9 +329,9 @@ InputManager:
     m_Name: Right
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: a
     positiveButton: d
-    altNegativeButton: 
+    altNegativeButton: left
     altPositiveButton: right
     gravity: 1000
     dead: .00100000005
@@ -345,9 +345,9 @@ InputManager:
     m_Name: Right
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: a
     positiveButton: d
-    altNegativeButton: 
+    altNegativeButton: left
     altPositiveButton: right
     gravity: 1000
     dead: .00100000005
